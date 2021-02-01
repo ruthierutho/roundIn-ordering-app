@@ -1,9 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import OrderingContainer from './containers/OrderingContainer';
 
 function App() {
   return (
-    null
+    <OrderingContainer />
+  )
 }
 
 export default App;
