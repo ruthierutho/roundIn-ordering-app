@@ -1,12 +1,11 @@
 import React from 'react';
 import '../static/order-item.css'
 
-const Order = (props, {showDetails}) => {
+const Order = (props) => {
 
 
     const handleClick = (evt) => {
-        console.log("Event:", evt);
-        // showDetails(evt.target)
+        props.showDetails(props.orderKey)
     }
  
 

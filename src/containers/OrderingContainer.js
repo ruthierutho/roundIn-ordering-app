@@ -13,7 +13,8 @@ const OrderingContainer = () => {
         .then((data) => setOrders(data))
     }, []);
 
-    const showDetails = (order) => {
+    const showDetails = (orderKey) => {
+        const order = orders[orderKey]
         setSelectedOrder(order)
         
     }
@@ -22,7 +23,7 @@ const OrderingContainer = () => {
         <>
         <h1>Rounders</h1>
         <h3>Welcome Venue Name!</h3>
-        <OrderList orders={orders} showDetails={(order) => showDetails(order)}></OrderList>
+        <OrderList orders={orders} showDetails={showDetails}></OrderList>
         <OrderDetails selectedOrder={selectedOrder}/>
 
         </>

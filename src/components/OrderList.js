@@ -17,6 +17,7 @@ const OrderList = ({orders, showDetails}) => {
                 return(
                     <Order 
                         key={index}
+                        orderKey={index}
                         dateTime={order.date}
                         customer={order.customer.name}
                         venue={order.venue.name}

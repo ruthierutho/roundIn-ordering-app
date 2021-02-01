@@ -2,7 +2,9 @@ import React from 'react';
 
 const OrderDetails = ({selectedOrder}) => {
     return(
-        null
+       <div>
+           {selectedOrder == undefined ? "" : selectedOrder.customer.name}
+       </div>
     )
 }
 
