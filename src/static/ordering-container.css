@@ -1,5 +1,5 @@
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: paleturquoise;
     color: teal;
 }
@@ -7,4 +7,9 @@ body {
 h1 {
     font-size: 45pt;
     margin: 0;
+    margin-left: 20px;
+}
+
+.venue-welcome{
+    margin-left: 20px;
 }

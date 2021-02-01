@@ -1,7 +1,8 @@
 .order-list-box {
     font-family: 'Courier New', Courier, monospace;
     background-color: aquamarine;
-    border-width: 3px solid blue;
+    border: 2px solid teal;
     padding: 5px;
-    color: darkblue;
+    margin: 5px;
+    color: darkslategray;
 }

@@ -10,8 +10,8 @@ const Order = (props) => {
  
 
     return(
-        <li  className="item" onClick={handleClick}>
-            <p><b>{props.dateTime}</b>- {props.customer} -  {props.venue}</p>
+        <li  className="item" >
+            <p><b>{props.dateTime}</b>- {props.customer} -  {props.venue} <button className="view-button" onClick={handleClick}>View</button></p>
         </li>
     )
 
