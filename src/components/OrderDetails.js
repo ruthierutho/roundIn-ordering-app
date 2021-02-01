@@ -45,7 +45,7 @@ const OrderDetails = ({selectedOrder, hideDetails}) => {
 
     return(
        <div className="details-box">
-           <h3>{selectedOrder.date}</h3>
+           <h3>{selectedOrder.collectionTime}</h3>
            <h3>{selectedOrder === undefined ? "" : selectedOrder.customer.name}</h3>
            <h4>Drinks:</h4>
            {drinkDetails}

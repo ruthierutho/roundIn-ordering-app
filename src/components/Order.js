@@ -11,7 +11,7 @@ const Order = (props) => {
 
     return(
         <li  className="item" >
-            <p><b>{props.dateTime}</b>- {props.customer} -  {props.venue} <button className="view-button" onClick={handleClick}>View</button></p>
+            <p><b>{props.time}</b>- {props.customer} -  {props.venue} <button className="view-button" onClick={handleClick}>View</button></p>
         </li>
     )
 
