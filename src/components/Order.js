@@ -1,15 +1,19 @@
 import React from 'react';
 import '../static/order-item.css'
 
-const Order = (props) => {
+const Order = (props, {showDetails}) => {
+
+
+    const handleClick = (evt) => {
+        console.log("Event:", evt);
+        // showDetails(evt.target)
+    }
+ 
 
     return(
-        <div className="item">
-            <h5>{props.dateTime}</h5>
-            <p>{props.customer}</p>
-            <p>{props.venue}</p>
-
-        </div>
+        <li  className="item" onClick={handleClick}>
+            <p><b>{props.dateTime}</b>- {props.customer} -  {props.venue}</p>
+        </li>
     )
 
 }

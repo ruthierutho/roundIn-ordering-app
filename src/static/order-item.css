@@ -1,5 +1,7 @@
 .item {
     border: 2px solid deepskyblue;
     background-color: teal;
-    color: darkblue
+    color: darkblue;
+    margin: 10px;
+    list-style: none;
 }

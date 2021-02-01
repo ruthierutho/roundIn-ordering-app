@@ -2,25 +2,29 @@ import React from 'react';
 import Order from './Order';
 import '../static/order-list.css';
 
-const OrderList = ({orders}) => {
+const OrderList = ({orders, showDetails}) => {
+
+
+  
+
 
     return(
         <>
         <div className="order-list-box">
         <h4>Open Orders</h4>
-        <div>
+        <ul>
             {orders.map((order, index) => {
                 return(
-                    <Order
+                    <Order 
                         key={index}
                         dateTime={order.date}
                         customer={order.customer.name}
                         venue={order.venue.name}
-                        
+                        showDetails={showDetails}
                     ></Order>
                 )
             })}
-        </div>
+        </ul>
         </div>
         </>
 
