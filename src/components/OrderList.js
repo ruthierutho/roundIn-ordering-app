@@ -2,11 +2,10 @@ import React from 'react';
 import Order from './Order';
 import '../static/order-list.css';
 
-const OrderList = ({orders, showDetails}) => {
+const OrderList = ({orders, showDetails, selectedOrder, hideDetails}) => {
 
 
   
-
 
     return(
         <>
@@ -18,10 +17,13 @@ const OrderList = ({orders, showDetails}) => {
                     <Order 
                         key={index}
                         orderKey={index}
+                        orderId={order.id}
                         time={order.collectionTime}
                         customer={order.customer.name}
                         venue={order.venue.name}
                         showDetails={showDetails}
+                        selectedOrder={selectedOrder}
+                        hideDetails={hideDetails}
                     ></Order>
                 )
             })}

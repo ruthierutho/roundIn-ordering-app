@@ -3,7 +3,7 @@ import "../static/order-details.css";
 
 const OrderDetails = ({ selectedOrder, hideDetails }) => {
   if (selectedOrder == null) {
-    return <p>Select an order</p>;
+    return <p></p>;
   }
 
   const handleClose = (evt) => {
@@ -29,22 +29,9 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
     );
   });
 
-  // let drinks = selectedOrder.drinks.map((drink, index) => {
-  //     return (
-  //         {drink.price}
-  //     )
-  // })
-
-  // const getBill = () => {
-  //     const totalBill = 0;
-  //     for (drink.price in drinks){
-  //     drink.price += totalBill
-  //    }
-  //    for(food in foods){
-  //        food.price += totalBill
-  //    }
-  //    return totalBill
-  // }
+  let total = 0;
+  selectedOrder.foods.forEach((food) => (total += food.price));
+  selectedOrder.drinks.forEach((drink) => (total += drink.price));
 
   return (
     <div className="details-box">
@@ -54,8 +41,7 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
       {drinkDetails}
       <h4>Food:</h4>
       {foodDetails}
-      <h4>Total:</h4>
-      <button>Mark as Collected</button>
+      <h4>Total: £{total}</h4>
       <p>
         <button onClick={handleClose}>Close</button>
       </p>

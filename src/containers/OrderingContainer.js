@@ -6,7 +6,7 @@ import "../static/ordering-container.css";
 
 const OrderingContainer = () => {
   const [orders, setOrders] = useState([]);
-  const [selectedOrder, setSelectedOrder] = useState();
+  const [selectedOrder, setSelectedOrder] = useState(orders[0]);
 
   useEffect(() => {
     fetch("http://localhost:8080/orders")
@@ -26,15 +26,15 @@ const OrderingContainer = () => {
   };
 
   const hideDetails = () => {
-    setSelectedOrder(null);
+    setSelectedOrder(orders[0]);
   };
 
   return (
     <>
       <h1>Rounders</h1>
       <h3 className="venue-welcome">Welcome Venue Name!</h3>
-      <OrderList orders={orders} showDetails={showDetails}></OrderList>
-      <OrderDetails selectedOrder={selectedOrder} hideDetails={hideDetails} />
+      <OrderList orders={orders} showDetails={showDetails} selectedOrder={selectedOrder} hideDetails={hideDetails}></OrderList>
+      
     </>
   );
 };
