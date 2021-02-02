@@ -1,0 +1,17 @@
+.item {
+    border: 2px solid deepskyblue;
+    background-color: teal;
+    color: darkblue;
+    margin: 10px;
+    list-style: none;
+}
+
+.view-button {
+    border-radius: 5px;
+    text-decoration: none;
+    align-content: space-between;
+    padding: 3px;
+    background-color: deepskyblue;
+    color: darkblue;
+    box-shadow: non
+}
