@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useInterval } from "../hooks/useInterval";
 import OrderList from "../components/OrderList";
 import OrderDetails from "../components/OrderDetails";
@@ -7,6 +7,12 @@ import "../static/ordering-container.css";
 const OrderingContainer = () => {
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState();
+
+  useEffect(() => {
+    fetch("http://localhost:8080/orders")
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, []);
 
   useInterval(() => {
     fetch("http://localhost:8080/orders")
@@ -28,6 +34,7 @@ const OrderingContainer = () => {
       <h1>Rounders</h1>
       <h3 className="venue-welcome">Welcome Venue Name!</h3>
       <OrderList orders={orders} showDetails={showDetails}></OrderList>
+      <OrderDetails selectedOrder={selectedOrder} hideDetails={hideDetails} />
     </>
   );
 };

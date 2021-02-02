@@ -14,7 +14,6 @@ const Order = (props) => {
           View
         </button>
       </p>
-      <OrderDetails selectedOrder={selectedOrder} hideDetails={hideDetails} />
     </li>
   );
 };
