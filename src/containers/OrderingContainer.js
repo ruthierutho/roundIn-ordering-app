@@ -3,6 +3,7 @@ import { useInterval } from "../hooks/useInterval";
 import OrderList from "../components/OrderList";
 import OrderDetails from "../components/OrderDetails";
 import "../static/ordering-container.css";
+import Request from '../helpers/Request'
 
 const OrderingContainer = () => {
   const [orders, setOrders] = useState([]);
@@ -23,11 +24,17 @@ const OrderingContainer = () => {
     setSelectedOrder(orders[0]);
   };
 
+  const onUpdateOrder = (order) => {
+    const request = new Request();
+    console.log(order.id);
+    request.patch('http://localhost:8080/orders/' + order.id, order)
+  }
+
   return (
     <>
       <h1>Rounders</h1>
       <h3 className="venue-welcome">Welcome Venue Name!</h3>
-      <OrderList orders={orders} showDetails={showDetails} selectedOrder={selectedOrder} hideDetails={hideDetails}></OrderList>
+      <OrderList orders={orders} showDetails={showDetails} selectedOrder={selectedOrder} hideDetails={hideDetails} onUpdateOrder={onUpdateOrder}></OrderList>
       
     </>
   );

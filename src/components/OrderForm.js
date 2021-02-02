@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const OrderForm = ({selectedOrder}) => {
+
+const OrderForm = ({selectedOrder, onUpdateOrder}) => {
+
+    const [stateOrder, setStateOrder] = useState ({...selectedOrder})
+
+
 
     const handleFormSubmit = (evt) =>{
         evt.preventDefault();
-        return null
+        onUpdateOrder(stateOrder);
     }
 
-    const handleCustomerChange = () => {
-        return null
+    const handleCustomerChange = (event) => {
+        let propertyName = event.target.name;
+        let copiedOrder = {...stateOrder}
+        copiedOrder.customer[propertyName] = event.target.value;
+        setStateOrder(copiedOrder)
     }
  
     return(
         <form onSubmit={handleFormSubmit}>
             <input
             type="text"
-            placeholder={selectedOrder.customer.name}
-            value={selectedOrder.customer.name}
+            name="name"
+            defaultValue={stateOrder.customer.name}
             onChange={handleCustomerChange}
             />
             <input

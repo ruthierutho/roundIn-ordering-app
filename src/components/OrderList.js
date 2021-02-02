@@ -2,7 +2,7 @@ import React from 'react';
 import Order from './Order';
 import '../static/order-list.css';
 
-const OrderList = ({orders, showDetails, selectedOrder, hideDetails}) => {
+const OrderList = ({orders, showDetails, selectedOrder, hideDetails, onUpdateOrder}) => {
 
 
   
@@ -24,6 +24,7 @@ const OrderList = ({orders, showDetails, selectedOrder, hideDetails}) => {
                         showDetails={showDetails}
                         selectedOrder={selectedOrder}
                         hideDetails={hideDetails}
+                        onUpdateOrder={onUpdateOrder}
                     ></Order>
                 )
             })}
