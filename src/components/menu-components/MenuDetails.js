@@ -18,7 +18,11 @@ const MenuDetails = ({ selectedMenu, hideDetails }) => {
       <DrinksList drinks={selectedMenu.drinks} />
       <FoodList foods={selectedMenu.foods} />
       <p>
-        <button onClick={handleClose}>Close</button>
+        {selectedMenu.id !== 1 ? (
+          <button onClick={handleClose}>Close</button>
+        ) : (
+          ""
+        )}
       </p>
     </div>
   );

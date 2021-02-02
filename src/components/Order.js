@@ -12,11 +12,12 @@ const Order = (props) => {
     <>
       <li className="item">
         <p>
-          <b>{props.time}</b>- {props.customer} - {props.venue}{" "}
+          <b>{props.time}</b>- {props.customer} - {props.venue}
           <button className="view-button" onClick={handleClick}>
             View
           </button>
           <button className="view-button">Mark as Collected</button>
+          <button className="view-button">Update</button>
         </p>
       </li>
       <ShowDetails

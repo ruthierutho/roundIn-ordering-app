@@ -12,20 +12,21 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
 
   const drinkDetails = selectedOrder.drinks.map((drink, index) => {
     return (
-      <div>
+      <li key={drink.id}>
         <p>
           {drink.name}- £{drink.price}
         </p>
-        <p></p>
-      </div>
+      </li>
     );
   });
 
   const foodDetails = selectedOrder.foods.map((food, index) => {
     return (
-      <p>
-        {food.name}- £{food.price}
-      </p>
+      <li key={food.id}>
+        <p>
+          {food.name}- £{food.price}
+        </p>
+      </li>
     );
   });
 
@@ -38,12 +39,16 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
       <h3>{selectedOrder.collectionTime}</h3>
       <h3>{selectedOrder === undefined ? "" : selectedOrder.customer.name}</h3>
       <h4>Drinks:</h4>
-      {drinkDetails}
+      <ul>{drinkDetails}</ul>
       <h4>Food:</h4>
-      {foodDetails}
+      <ul>{foodDetails}</ul>
       <h4>Total: £{total}</h4>
       <p>
-        <button onClick={handleClose}>Close</button>
+        {selectedOrder.id !== 1 ? (
+          <button onClick={handleClose}>Close</button>
+        ) : (
+          ""
+        )}
       </p>
     </div>
   );
