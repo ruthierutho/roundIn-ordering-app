@@ -1,4 +1,5 @@
 import React from "react";
+import ShowMenuDetails from "./ShowMenuDetails";
 
 const Menu = (props) => {
   const handleClick = (evt) => {
@@ -14,6 +15,11 @@ const Menu = (props) => {
       <button className="view-button" onClick={handleClick}>
         View
       </button>
+      <ShowMenuDetails
+        menuId={props.menuId}
+        selectedMenu={props.selectedMenu}
+        hideDetails={props.hideDetails}
+      />
     </li>
   );
 };

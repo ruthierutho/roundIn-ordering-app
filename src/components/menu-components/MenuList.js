@@ -1,7 +1,7 @@
 import React from "react";
 import Menu from "./Menu";
 
-const MenuList = ({ menus, showDetails }) => {
+const MenuList = ({ menus, showDetails, selectedMenu, hideDetails }) => {
   return (
     <>
       <div className="menu-list-box">
@@ -12,11 +12,14 @@ const MenuList = ({ menus, showDetails }) => {
               <Menu
                 key={index}
                 menuKey={index}
+                menuId={menu.id}
                 name={menu.name}
                 venue={menu.venues[0].name}
                 drinks={menu.drinks}
                 foods={menu.foods}
                 showDetails={showDetails}
+                selectedMenu={selectedMenu}
+                hideDetails={hideDetails}
               ></Menu>
             );
           })}

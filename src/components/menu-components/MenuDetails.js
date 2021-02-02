@@ -4,7 +4,7 @@ import FoodList from "./FoodList";
 
 const MenuDetails = ({ selectedMenu, hideDetails }) => {
   if (selectedMenu == null) {
-    return <p>Select an menu</p>;
+    return null;
   }
 
   const handleClose = (evt) => {
@@ -17,7 +17,6 @@ const MenuDetails = ({ selectedMenu, hideDetails }) => {
       <h4>{selectedMenu.venues[0].name}</h4>
       <DrinksList drinks={selectedMenu.drinks} />
       <FoodList foods={selectedMenu.foods} />
-
       <p>
         <button onClick={handleClose}>Close</button>
       </p>

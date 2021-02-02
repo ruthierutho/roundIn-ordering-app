@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useInterval } from "../hooks/useInterval";
-import MenuDetails from "../components/menu-components/MenuDetails";
 import MenuList from "../components/menu-components/MenuList";
 
 const MenuContainer = () => {
   const [menus, setMenus] = useState([]);
-  const [selectedMenu, setSelectedMenu] = useState();
+  const [selectedMenu, setSelectedMenu] = useState(menus[0]);
 
   useEffect(() => {
     fetch("http://localhost:8080/menus")
@@ -25,13 +24,17 @@ const MenuContainer = () => {
   };
 
   const hideDetails = () => {
-    setSelectedMenu(null);
+    setSelectedMenu(menus[0]);
   };
 
   return (
     <>
-      <MenuList menus={menus} showDetails={showDetails}></MenuList>
-      <MenuDetails selectedMenu={selectedMenu} hideDetails={hideDetails} />
+      <MenuList
+        menus={menus}
+        showDetails={showDetails}
+        selectedMenu={selectedMenu}
+        hideDetails={hideDetails}
+      ></MenuList>
     </>
   );
 };
