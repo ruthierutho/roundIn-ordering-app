@@ -1,20 +1,22 @@
-import React from 'react';
-import '../static/order-item.css'
+import React from "react";
+import "../static/order-item.css";
 
 const Order = (props) => {
+  const handleClick = (evt) => {
+    props.showDetails(props.orderKey);
+  };
 
-
-    const handleClick = (evt) => {
-        props.showDetails(props.orderKey)
-    }
- 
-
-    return(
-        <li  className="item" >
-            <p><b>{props.time}</b>- {props.customer} -  {props.venue} <button className="view-button" onClick={handleClick}>View</button></p>
-        </li>
-    )
-
-}
+  return (
+    <li className="item">
+      <p>
+        <b>{props.time}</b>- {props.customer} - {props.venue}{" "}
+        <button className="view-button" onClick={handleClick}>
+          View
+        </button>
+      </p>
+      <OrderDetails selectedOrder={selectedOrder} hideDetails={hideDetails} />
+    </li>
+  );
+};
 
 export default Order;
