@@ -8,7 +8,7 @@ const ShowDetails = ({selectedOrder, hideDetails, orderId}) => {
   }
   else {
 
-    if (orderId == selectedOrder.id) {
+    if (orderId === selectedOrder.id) {
       return (<OrderDetails selectedOrder={selectedOrder} hideDetails={hideDetails} />);
     }
     else {
