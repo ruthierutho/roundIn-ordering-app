@@ -1,14 +1,8 @@
 import React from "react";
-import MenuContainer from "./containers/MenuContainer";
-import OrderingContainer from "./containers/OrderingContainer";
+import MainContainer from "./containers/MainContainer";
 
 function App() {
-  return (
-    <>
-      <MenuContainer />
-      <OrderingContainer />
-    </>
-  );
+  return <MainContainer />;
 }
 
 export default App;

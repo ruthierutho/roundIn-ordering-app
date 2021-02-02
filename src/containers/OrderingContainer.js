@@ -30,8 +30,6 @@ const OrderingContainer = () => {
 
   return (
     <>
-      <h1>Rounders</h1>
-      <h3 className="venue-welcome">Welcome Venue Name!</h3>
       <OrderList
         orders={orders}
         showDetails={showDetails}
