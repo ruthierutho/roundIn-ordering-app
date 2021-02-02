@@ -21,6 +21,7 @@ class Request {
     }
 
     patch(url, payload){
+      console.log(JSON.stringify(payload))
       return fetch(url, {
         method: "PATCH",
         headers: {'Content-Type': 'application/json'},

@@ -26,7 +26,7 @@ const OrderingContainer = () => {
 
   const onUpdateOrder = (order) => {
     const request = new Request();
-    console.log(order.id);
+    console.log(order);
     request.patch('http://localhost:8080/orders/' + order.id, order)
   }
 
