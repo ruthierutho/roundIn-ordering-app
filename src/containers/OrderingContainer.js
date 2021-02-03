@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useInterval } from "../hooks/useInterval";
 import OrderList from "../components/OrderList";
 import "../static/ordering-container.css";
+import Request from '../helpers/Request'
 
 const OrderingContainer = () => {
   const [orders, setOrders] = useState([]);
@@ -28,6 +29,12 @@ const OrderingContainer = () => {
     setSelectedOrder(orders[0]);
   };
 
+  const onUpdateOrder = (order) => {
+    const request = new Request();
+    console.log(order);
+    request.patch('http://localhost:8080/orders/' + order.id, order)
+  }
+
   return (
     <>
       <OrderList
@@ -35,9 +42,11 @@ const OrderingContainer = () => {
         showDetails={showDetails}
         selectedOrder={selectedOrder}
         hideDetails={hideDetails}
+        onUpdateOrder={onUpdateOrder}
       ></OrderList>
     </>
   );
 };
+
 
 export default OrderingContainer;

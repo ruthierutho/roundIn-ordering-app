@@ -1,7 +1,8 @@
 .details-box{
-    border: 2px solid teal;
+    border: 2px solid #0966C2;
     padding: 20px;
     margin: 20px;
+    background-color: #E6EDF5;
     font-family: 'Courier New', Courier, monospace;
     
 }

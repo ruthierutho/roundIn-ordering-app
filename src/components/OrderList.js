@@ -2,7 +2,7 @@ import React from 'react';
 import Order from './Order';
 import '../static/order-list.css';
 
-const OrderList = ({orders, showDetails, selectedOrder, hideDetails}) => {
+const OrderList = ({orders, showDetails, selectedOrder, hideDetails, onUpdateOrder}) => {
 
 
   
@@ -10,7 +10,7 @@ const OrderList = ({orders, showDetails, selectedOrder, hideDetails}) => {
     return(
         <>
         <div className="order-list-box">
-        <h4>Open Orders</h4>
+        <h3>Open Orders</h3>
         <ul>
             {orders.map((order, index) => {
                 return(
@@ -24,6 +24,7 @@ const OrderList = ({orders, showDetails, selectedOrder, hideDetails}) => {
                         showDetails={showDetails}
                         selectedOrder={selectedOrder}
                         hideDetails={hideDetails}
+                        onUpdateOrder={onUpdateOrder}
                     ></Order>
                 )
             })}
