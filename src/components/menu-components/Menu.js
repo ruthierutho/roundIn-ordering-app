@@ -11,7 +11,6 @@ const Menu = (props) => {
       <p>
         <b>Menu Name: {props.name}</b>
       </p>
-      <p>Venue: {props.venue}</p>
       <button className="view-button" onClick={handleClick}>
         View
       </button>

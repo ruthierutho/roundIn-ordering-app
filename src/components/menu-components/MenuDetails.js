@@ -14,7 +14,6 @@ const MenuDetails = ({ selectedMenu, hideDetails }) => {
   return (
     <div className="details-box">
       <h3>{selectedMenu.name}</h3>
-      <h4>{selectedMenu.venues[0].name}</h4>
       <DrinksList drinks={selectedMenu.drinks} />
       <FoodList foods={selectedMenu.foods} />
       <p>

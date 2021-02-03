@@ -9,9 +9,7 @@ const VenueBar = ({ venues, onUpdateVenue, selectedVenue }) => {
   };
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     let selectedVenue = venues[event.target.value];
-    console.log(selectedVenue);
     setStateSelectedVenue(selectedVenue);
   };
 
@@ -24,7 +22,7 @@ const VenueBar = ({ venues, onUpdateVenue, selectedVenue }) => {
   });
   return (
     <>
-      {selectedVenue !== null ? (
+      {selectedVenue != null ? (
         <h3 className="venue-welcome">Welcome {selectedVenue.name}!</h3>
       ) : (
         <h3>Welcome, please select a venue</h3>
