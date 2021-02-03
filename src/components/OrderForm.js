@@ -7,10 +7,16 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
     const [stateOrder, setStateOrder] = useState ({...selectedOrder})
 
     const selectOptions = stateOrder.drinks.map((drink, index) => {
+            const handleDrinkDelete = (event) => {
+                let copiedOrder = {...stateOrder}
+                copiedOrder.drinks.splice(event.target.value, 1)
+                setStateOrder(copiedOrder)
+    }
         return (
-          <option key={index} value={index}>
+          <li key={index} value={index}>
             {drink.name}- £{drink.price}
-          </option>
+            <button onClick={handleDrinkDelete}>Delete Drink</button> 
+          </li>
         );
       });
 
@@ -29,13 +35,13 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
         setStateOrder(copiedOrder)
     }
 
-    const handleDrinkChange = (event) => {
-        const index = parseInt(event.target.value)
-        const selectedDrink = stateOrder.drinks[index]
-        let copiedOrder = {...stateOrder};
-        copiedOrder['drink'] = selectedDrink
-        setStateOrder(copiedOrder)
-    }
+    // const handleDrinkChange = (event) => {
+    //     const index = parseInt(event.target.value)
+    //     const selectedDrink = stateOrder.drinks[index]
+    //     let copiedOrder = {...stateOrder};
+    //     copiedOrder['drink'] = selectedDrink
+    //     setStateOrder(copiedOrder)
+    // }
 
     const handleFormSubmit = (evt) =>{
         evt.preventDefault();
@@ -43,7 +49,7 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
     }
 
     const handleDelete = () => {
-        ondeviceorientationabsolute(stateOrder.drinks.id)
+        return null
     }
  
     return(
@@ -89,18 +95,8 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
             <p>
             <label> Drinks: </label>
             <ul>
-                    {selectOptions}
-                    <button onClick={handleDelete}>Delete Drink</button>     
+                    {selectOptions}    
             </ul>
-            </p>
-            <p>
-            <select
-                name="drink"
-                defaultValue={selectOptions}
-                onChange={handleDrinkChange}
-            >
-            {selectOptions}
-            </select>
             </p>
 
             <input
@@ -113,11 +109,13 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
     )
 }
 
-//   <select
-// name="drink"
-// defaultValue={selectOptions}
-// onChange={handleDrinkChange}
+// <p>
+// <select
+//     name="drink"
+//     defaultValue={selectOptions}
+//     onChange={handleDrinkChange}
 // >
-//  {selectOptions}
+// {selectOptions}
 // </select>
+// </p>
 export default OrderForm;

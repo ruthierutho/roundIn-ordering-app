@@ -1,7 +1,7 @@
 .item {
-    border: 2px solid deepskyblue;
-    background-color: teal;
-    color: darkblue;
+    border: 2px solid #0966C2;
+    background-color: #E6EDF5;
+    color: #0966C2;
     margin: 10px;
     list-style: none;
 }
@@ -11,7 +11,7 @@
     text-decoration: none;
     align-content: space-between;
     padding: 3px;
-    background-color: deepskyblue;
-    color: darkblue;
+    background-color: #9EA3A8;
+    color: #0966C2;
     margin-left: 10px;
 }

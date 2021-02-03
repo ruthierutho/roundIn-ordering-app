@@ -10,7 +10,7 @@ const OrderList = ({orders, showDetails, selectedOrder, hideDetails, onUpdateOrd
     return(
         <>
         <div className="order-list-box">
-        <h4>Open Orders</h4>
+        <h3>Open Orders</h3>
         <ul>
             {orders.map((order, index) => {
                 return(
