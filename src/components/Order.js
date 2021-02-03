@@ -27,7 +27,7 @@ const Order = (props) => {
             </p>
 
         </li>
-            <ShowDetails orderId={props.orderId} selectedOrder={props.selectedOrder} hideDetails={props.hideDetails} update={update} onUpdateOrder={props.onUpdateOrder}/>
+            <ShowDetails orderId={props.orderId} selectedOrder={props.selectedOrder} hideDetails={props.hideDetails} update={update} onUpdateOrder={props.onUpdateOrder} selectedMenu={props.selectedMenu}/>
         </>
     )
 

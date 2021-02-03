@@ -8,6 +8,7 @@ const OrderingContainer = ({
   selectedOrder,
   hideOrderDetails,
   onUpdateOrder,
+  selectedMenu
 }) => {
   return (
     <>
@@ -17,6 +18,7 @@ const OrderingContainer = ({
         selectedOrder={selectedOrder}
         hideDetails={hideOrderDetails}
         onUpdateOrder={onUpdateOrder}
+        selectedMenu={selectedMenu}
       ></OrderList>
     </>
   );
