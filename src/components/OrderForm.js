@@ -20,6 +20,20 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
         );
       });
 
+    const selectFoodOptions = stateOrder.foods.map((food, index) => {
+        const handleFoodDelete = (event) => {
+            let copiedOrder = {...stateOrder}
+            copiedOrder.foods.splice(event.target.value, 1)
+            setStateOrder(copiedOrder)
+}
+    return (
+      <li key={index} value={index}>
+        {food.name}- £{food.price}
+        <button onClick={handleFoodDelete}>Delete Food</button> 
+      </li>
+    );
+  });
+
 
     const handleCustomerChange = (event) => {
         let propertyName = event.target.name;
@@ -98,6 +112,13 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
                     {selectOptions}    
             </ul>
             </p>
+            <p>
+            <label> Food: </label>
+            <ul>
+                    {selectFoodOptions}    
+            </ul>
+            </p>
+
 
             <input
             type="submit"
