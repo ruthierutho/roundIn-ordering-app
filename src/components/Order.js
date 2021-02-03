@@ -1,6 +1,5 @@
 import React,{ useState } from 'react';
 import '../static/order-item.css';
-import OrderDetails from './OrderDetails';
 import ShowDetails from './ShowDetails'
 
 const Order = (props) => {

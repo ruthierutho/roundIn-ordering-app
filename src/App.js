@@ -1,10 +1,8 @@
-import React from 'react';
-import OrderingContainer from './containers/OrderingContainer';
+import React from "react";
+import MainContainer from "./containers/MainContainer";
 
 function App() {
-  return (
-    <OrderingContainer />
-  )
+  return <MainContainer />;
 }
 
 export default App;
