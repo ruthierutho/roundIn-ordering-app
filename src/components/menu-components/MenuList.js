@@ -8,7 +8,6 @@ const MenuList = ({ menus, showDetails, selectedMenu, hideDetails }) => {
         <h4>Menus</h4>
         <ul>
           {menus.map((menu, index) => {
-            console.log("Menu:", menu);
             return (
               <Menu
                 key={index}

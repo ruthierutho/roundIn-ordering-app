@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useDidMountEffect } from "../hooks/useDidMountEffect";
+import { useInterval } from "../hooks/useInterval";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import MenuContainer from "./MenuContainer";
@@ -13,6 +14,8 @@ function MainContainer() {
   const [selectedVenue, setSelectedVenue] = useState([]);
   const [menus, setMenus] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState(menus[0]);
+  const [orders, setOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(orders[0]);
 
   useEffect(() => {
     fetch("http://localhost:8080/venues")
@@ -25,10 +28,21 @@ function MainContainer() {
   }, []);
 
   useDidMountEffect(() => {
+    fetch("http://localhost:8080/orders/venue/" + selectedVenue.id)
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, [selectedVenue]);
+
+  useInterval(() => {
+    fetch("http://localhost:8080/orders/venue/" + selectedVenue.id)
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, 10000);
+
+  useDidMountEffect(() => {
     fetch("http://localhost:8080/menus/venue/" + selectedVenue.id)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Data:", data);
         setMenus(data);
       });
   }, [selectedVenue]);
@@ -46,6 +60,20 @@ function MainContainer() {
     setSelectedMenu(menus[0]);
   };
 
+  const showOrderDetails = (orderKey) => {
+    const order = orders[orderKey];
+    setSelectedOrder(order);
+  };
+
+  const hideOrderDetails = () => {
+    setSelectedOrder(orders[0]);
+  };
+
+  const onUpdateOrder = (order) => {
+    const request = new Request();
+    request.patch("http://localhost:8080/orders/" + order.id, order);
+  };
+
   return (
     <Router>
       <>
@@ -57,7 +85,20 @@ function MainContainer() {
           selectedVenue={selectedVenue}
         />
         <Switch>
-          <Route exact path="/" component={OrderingContainer} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <OrderingContainer
+                selectedVenue={selectedVenue}
+                orders={orders}
+                selectedOrder={selectedOrder}
+                showOrderDetails={showOrderDetails}
+                hideOrderDetails={hideOrderDetails}
+                onUpdateOrder={onUpdateOrder}
+              />
+            )}
+          />
           <Route
             path="/menus"
             render={() => (
