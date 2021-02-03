@@ -38,6 +38,7 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
     <div className="details-box">
       <h3>{selectedOrder.collectionTime}</h3>
       <h3>{selectedOrder === undefined ? "" : selectedOrder.customer.name}</h3>
+      <h3>{selectedOrder.collected === true ? "Collected" : "To Collect"}</h3>
       <h4>Drinks:</h4>
       <ul>{drinkDetails}</ul>
       <h4>Food:</h4>
