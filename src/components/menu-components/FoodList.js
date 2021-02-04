@@ -45,9 +45,10 @@ const handleFoodAdd = (event) => {
       <p>
         <select
           name="food"
-          defaultValue={foodOptions}
+          defaultValue='select-food'
           onChange={handleFoodAdd}
         >
+          <option disabled value='select-food'>Select food to add</option>
           {selectFood}
         </select>
 
