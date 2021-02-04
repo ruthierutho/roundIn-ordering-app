@@ -7,7 +7,7 @@ const FoodList = ({ foods }) => {
 
     return (
         <option key={index} value={index}>
-            {food.name}- £{food.price}
+            {food.name}- £{(food.price / 100).toFixed(2)}
         </option>
 
     )

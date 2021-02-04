@@ -7,7 +7,7 @@ const DrinksList = ({ drinks }) => {
 
     return (
         <option key={index} value={index}>
-            {drink.name}- £{drink.price}
+            {drink.name}- £{(drink.price / 100).toFixed(2)}
         </option>
 
     )
