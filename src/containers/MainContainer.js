@@ -8,6 +8,7 @@ import MenuContainer from "./MenuContainer";
 import OrderingContainer from "./OrderingContainer";
 import ErrorPage from "../components/ErrorPage";
 import VenueBar from "../components/VenueBar";
+import Request from "../helpers/Request";
 
 function MainContainer() {
   const [venues, setVenues] = useState([]);
@@ -44,6 +45,7 @@ function MainContainer() {
       .then((res) => res.json())
       .then((data) => {
         setMenus(data);
+        setSelectedMenu(menus[0])
       });
   }, [selectedVenue]);
 
@@ -96,6 +98,7 @@ function MainContainer() {
                 showOrderDetails={showOrderDetails}
                 hideOrderDetails={hideOrderDetails}
                 onUpdateOrder={onUpdateOrder}
+                selectedMenu={selectedMenu}
               />
             )}
           />
