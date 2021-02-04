@@ -11,7 +11,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
 
         return (
             <option key={index} value={index}>
-                {drink.name}- £{drink.price}
+                {drink.name}- £{(drink.price / 100).toFixed(2)}
             </option>
 
         )
@@ -21,7 +21,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
 
         return (
             <option key={index} value={index}>
-                {food.name}- £{food.price}
+                {food.name}- £{(food.price / 100).toFixed(2)}
             </option>
 
         )
@@ -36,7 +36,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         }
         return (
             <li key={index} value={index}>
-                {drink.name}- £{drink.price}
+                {drink.name}- £{(drink.price / 100).toFixed(2)}
                 <button type="button" value={index} className="delete-box" onClick={handleDrinkDelete}>Delete Drink</button>
             </li>
         );
@@ -50,7 +50,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         }
         return (
             <li key={index} value={index}>
-                {food.name}- £{food.price}
+                {food.name}- £{(food.price / 100).toFixed(2)}
                 <button type="button" value={index} className="delete-box" onClick={handleFoodDelete}>Delete Food</button>
             </li>
         );
