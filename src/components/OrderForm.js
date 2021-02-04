@@ -60,7 +60,7 @@ const OrderForm = ({selectedOrder, onUpdateOrder}) => {
     const handleFormSubmit = (evt) =>{
         evt.preventDefault();
         onUpdateOrder(stateOrder);
-    }
+    };
 
     const handleDelete = () => {
         return null

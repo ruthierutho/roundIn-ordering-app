@@ -14,7 +14,7 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
     return (
       <li key={drink.id}>
         <p>
-          {drink.name}- £{drink.price}
+          {drink.name}- £{(drink.price / 100).toFixed(2)}
         </p>
       </li>
     );
@@ -24,7 +24,7 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
     return (
       <li key={food.id}>
         <p>
-          {food.name}- £{food.price}
+          {food.name}- £{(food.price / 100).toFixed(2)}
         </p>
       </li>
     );
@@ -43,7 +43,7 @@ const OrderDetails = ({ selectedOrder, hideDetails }) => {
       <ul>{drinkDetails}</ul>
       <h4>Food:</h4>
       <ul>{foodDetails}</ul>
-      <h4>Total: £{total}</h4>
+      <h4>Total: £{(total / 100).toFixed(2)}</h4>
       <p>
         {selectedOrder.id !== 1 ? (
           <button onClick={handleClose}>Close</button>
