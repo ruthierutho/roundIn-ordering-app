@@ -8,18 +8,20 @@ const OrderingContainer = ({
   selectedOrder,
   hideOrderDetails,
   onUpdateOrder,
-  selectedMenu
+  selectedMenu,
 }) => {
   return (
     <>
-      <OrderList
-        orders={orders}
-        showDetails={showOrderDetails}
-        selectedOrder={selectedOrder}
-        hideDetails={hideOrderDetails}
-        onUpdateOrder={onUpdateOrder}
-        selectedMenu={selectedMenu}
-      ></OrderList>
+      {selectedMenu ? (
+        <OrderList
+          orders={orders}
+          showDetails={showOrderDetails}
+          selectedOrder={selectedOrder}
+          hideDetails={hideOrderDetails}
+          onUpdateOrder={onUpdateOrder}
+          selectedMenu={selectedMenu}
+        ></OrderList>
+      ) : null}
     </>
   );
 };

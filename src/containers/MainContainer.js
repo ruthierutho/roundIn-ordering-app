@@ -45,7 +45,7 @@ function MainContainer() {
       .then((res) => res.json())
       .then((data) => {
         setMenus(data);
-        setSelectedMenu(menus[0])
+        setSelectedMenu(menus[0]);
       });
   }, [selectedVenue]);
 
