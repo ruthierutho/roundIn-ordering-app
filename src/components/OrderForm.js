@@ -7,7 +7,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
   const selectDrinks = selectedMenu.drinks.map((drink, index) => {
     return (
       <option key={index} value={index}>
-        {drink.name}- £{drink.price}
+        {drink.name}- £{(drink.price / 100).toFixed(2)}
       </option>
     );
   });
@@ -15,7 +15,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
   const selectFoods = selectedMenu.foods.map((food, index) => {
     return (
       <option key={index} value={index}>
-        {food.name}- £{food.price}
+        {food.name}- £{(food.price / 100).toFixed(2)}
       </option>
     );
   });
@@ -29,15 +29,17 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
     };
     return (
       <li key={index} value={index}>
-        {drink.name}- £{drink.price}
-        <button
-          type="button"
-          value={index}
-          className="delete-box"
-          onClick={handleDrinkDelete}
-        >
-          Delete Drink
-        </button>
+        {drink.name}- £{(drink.price / 100).toFixed(2)}
+        <p>
+          <button
+            type="button"
+            value={index}
+            className="delete-box"
+            onClick={handleDrinkDelete}
+          >
+            Remove {drink.name}
+          </button>
+        </p>
       </li>
     );
   });
@@ -50,15 +52,17 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
     };
     return (
       <li key={index} value={index}>
-        {food.name}- £{food.price}
-        <button
-          type="button"
-          value={index}
-          className="delete-box"
-          onClick={handleFoodDelete}
-        >
-          Delete Food
-        </button>
+        {food.name}- £{(food.price / 100).toFixed(2)}
+        <p>
+          <button
+            type="button"
+            value={index}
+            className="delete-box"
+            onClick={handleFoodDelete}
+          >
+            Remove {food.name}
+          </button>
+        </p>
       </li>
     );
   });
@@ -84,28 +88,16 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
     setStateOrder(copiedOrder);
   };
 
-  const handleTimeChange = (event) => {
+  const handleChange = (event) => {
     let propertyName = event.target.name;
     let copiedOrder = { ...stateOrder };
     copiedOrder[propertyName] = event.target.value;
     setStateOrder(copiedOrder);
   };
 
-  // const handleDrinkChange = (event) => {
-  //     const index = parseInt(event.target.value)
-  //     const selectedDrink = stateOrder.drinks[index]
-  //     let copiedOrder = {...stateOrder};
-  //     copiedOrder['drink'] = selectedDrink
-  //     setStateOrder(copiedOrder)
-  // }
-
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
     onUpdateOrder(stateOrder);
-  };
-
-  const handleDelete = () => {
-    return null;
   };
 
   return (
@@ -122,19 +114,19 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
       <p>
         <label> Collection Time: </label>
         <input
-          type="text"
+          type="time"
           name="collectionTime"
           defaultValue={stateOrder.collectionTime}
-          onChange={handleTimeChange}
+          onChange={handleChange}
         />
       </p>
       <p>
         <label> Collection Date: </label>
         <input
-          type="text"
+          type="date"
           name="collectionDate"
           defaultValue={stateOrder.collectionDate}
-          onChange={handleTimeChange}
+          onChange={handleChange}
         />
       </p>
       <p>
@@ -142,7 +134,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         <select
           name="collected"
           defaultValue={stateOrder.collected}
-          onChange={handleTimeChange}
+          onChange={handleChange}
         >
           <option value={true}>True</option>
           <option value={false}>False</option>
@@ -157,18 +149,26 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         <ul>{selectFoodOptions}</ul>
       </p>
 
+      <h4>Add a drink:</h4>
       <p>
         <select
           name="drink"
-          defaultValue={selectDrinks}
+          defaultValue="select-drink"
           onChange={handleDrinkAdd}
         >
+          <option disabled value="select-drink">
+            Select a drink to add
+          </option>
           {selectDrinks}
         </select>
       </p>
 
+      <h4>Add food:</h4>
       <p>
-        <select name="food" defaultValue={selectFoods} onChange={handleFoodAdd}>
+        <select name="food" defaultValue="select-food" onChange={handleFoodAdd}>
+          <option disabled value="select-food">
+            Select food to add
+          </option>
           {selectFoods}
         </select>
       </p>

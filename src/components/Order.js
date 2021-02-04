@@ -20,10 +20,10 @@ const Order = (props) => {
     return(
         <>
         <li  className="item" >
-            <p><b>{props.time}</b>- {props.customer} -  {props.venue} 
+            <p><b>{props.time}</b>- {props.customer} -  {props.venue} - <b> {props.collected === true ? "COLLECTED" : "TO COLLECT"} </b>
             <button className="view-button" onClick={handleClick}>View</button >
             <button className="view-button" onClick={handleUpdate}>Update</button>
-            <button className="view-button">Mark as Collected</button>
+    
             </p>
 
         </li>
