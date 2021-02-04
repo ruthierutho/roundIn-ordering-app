@@ -11,7 +11,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
 
         return (
             <option key={index} value={index}>
-                {drink.name}- £{drink.price}
+                {drink.name}- £{(drink.price / 100).toFixed(2)}
             </option>
 
         )
@@ -21,7 +21,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
 
         return (
             <option key={index} value={index}>
-                {food.name}- £{food.price}
+                {food.name}- £{(food.price / 100).toFixed(2)}
             </option>
 
         )
@@ -36,7 +36,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         }
         return (
             <li key={index} value={index}>
-                {drink.name}- £{drink.price}
+                {drink.name}- £{(drink.price / 100).toFixed(2)}
                 <p>
                 <button type="button" value={index} className="delete-box" onClick={handleDrinkDelete}>Remove {drink.name}</button>
                 </p>
@@ -52,7 +52,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         }
         return (
             <li key={index} value={index}>
-                {food.name}- £{food.price}
+                {food.name}- £{(food.price / 100).toFixed(2)}
                 <p>
                 <button type="button" value={index} className="delete-box" onClick={handleFoodDelete}>Remove {food.name}</button>
                 </p>
@@ -91,7 +91,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
         onUpdateOrder(stateOrder);
-    }
+    };
 
 
     return (
