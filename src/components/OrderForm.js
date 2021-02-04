@@ -108,7 +108,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
             <p>
                 <label> Collection Time: </label>
                 <input
-                    type="text"
+                    type="time"
                     name="collectionTime"
                     defaultValue={stateOrder.collectionTime}
                     onChange={handleChange}
@@ -117,7 +117,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
             <p>
                 <label> Collection Date: </label>
                 <input
-                    type="text"
+                    type="date"
                     name="collectionDate"
                     defaultValue={stateOrder.collectionDate}
                     onChange={handleChange}
