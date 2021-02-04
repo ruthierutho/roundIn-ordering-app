@@ -21,6 +21,7 @@ const OrderList = ({orders, showDetails, selectedOrder, hideDetails, onUpdateOrd
                         time={order.collectionTime}
                         customer={order.customer.name}
                         venue={order.venue.name}
+                        collected={order.collected}
                         showDetails={showDetails}
                         selectedOrder={selectedOrder}
                         hideDetails={hideDetails}

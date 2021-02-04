@@ -77,29 +77,18 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         setStateOrder(copiedOrder)
     }
 
-    const handleTimeChange = (event) => {
+    const handleChange = (event) => {
         let propertyName = event.target.name;
         let copiedOrder = { ...stateOrder }
         copiedOrder[propertyName] = event.target.value;
         setStateOrder(copiedOrder)
     }
 
-    // const handleDrinkChange = (event) => {
-    //     const index = parseInt(event.target.value)
-    //     const selectedDrink = stateOrder.drinks[index]
-    //     let copiedOrder = {...stateOrder};
-    //     copiedOrder['drink'] = selectedDrink
-    //     setStateOrder(copiedOrder)
-    // }
-
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
         onUpdateOrder(stateOrder);
     }
 
-    const handleDelete = () => {
-        return null
-    }
 
     return (
         <form className="details-box" onSubmit={handleFormSubmit}>
@@ -118,7 +107,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
                     type="text"
                     name="collectionTime"
                     defaultValue={stateOrder.collectionTime}
-                    onChange={handleTimeChange}
+                    onChange={handleChange}
                 />
             </p>
             <p>
@@ -127,7 +116,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
                     type="text"
                     name="collectionDate"
                     defaultValue={stateOrder.collectionDate}
-                    onChange={handleTimeChange}
+                    onChange={handleChange}
                 />
             </p>
             <p>
@@ -135,7 +124,7 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
                 <select
                     name="collected"
                     defaultValue={stateOrder.collected}
-                    onChange={handleTimeChange}
+                    onChange={handleChange}
                 >
                     <option value={true}>True</option>
                     <option value={false}>False</option>
