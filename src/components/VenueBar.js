@@ -30,7 +30,13 @@ const VenueBar = ({ venues, onUpdateVenue, selectedVenue }) => {
       <form onSubmit={handleFormSubmit}>
         <label>
           Choose your Venue:
-          <select onChange={handleChange}>{selectOptions}</select>
+          <select onChange={handleChange} defaultValue="select-venue">
+          <option disabled value="select-venue">
+            Select Venue
+          </option>
+            {selectOptions}
+            </select>
+
         </label>
         <input type="submit" value="Submit" />
       </form>
