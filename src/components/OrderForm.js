@@ -37,7 +37,9 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         return (
             <li key={index} value={index}>
                 {drink.name}- £{drink.price}
-                <button type="button" value={index} className="delete-box" onClick={handleDrinkDelete}>Delete Drink</button>
+                <p>
+                <button type="button" value={index} className="delete-box" onClick={handleDrinkDelete}>Remove {drink.name}</button>
+                </p>
             </li>
         );
     });
@@ -51,7 +53,9 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
         return (
             <li key={index} value={index}>
                 {food.name}- £{food.price}
-                <button type="button" value={index} className="delete-box" onClick={handleFoodDelete}>Delete Food</button>
+                <p>
+                <button type="button" value={index} className="delete-box" onClick={handleFoodDelete}>Remove {food.name}</button>
+                </p>
             </li>
         );
     });
@@ -143,23 +147,27 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
                 </ul>
             </p>
 
+            <h4>Add a drink:</h4>
             <p>
                 <select
                     name="drink"
-                    defaultValue={selectDrinks}
+                    defaultValue='select-drink'
                     onChange={handleDrinkAdd}
                 >
+                    <option disabled value='select-drink'>Select a drink to add</option>
                     {selectDrinks}
                 </select>
 
             </p>
 
+            <h4>Add food:</h4>
             <p>
                 <select
                     name="food"
-                    defaultValue={selectFoods}
+                    defaultValue='select-food'
                     onChange={handleFoodAdd}
                 >
+                    <option disabled value='select-food'>Select food to add</option>
                     {selectFoods}
                 </select>
 

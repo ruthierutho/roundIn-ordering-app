@@ -44,9 +44,10 @@ const DrinksList = ({ drinks }) => {
       <p>
         <select
           name="drink"
-          defaultValue={drinkOptions}
+          defaultValue='select-drink'
           onChange={handleDrinkAdd}
         >
+          <option disabled value='select-drink'>Select a drink to add</option>
           {selectDrinks}
         </select>
 
