@@ -136,8 +136,8 @@ const OrderForm = ({ selectedOrder, onUpdateOrder, selectedMenu }) => {
           defaultValue={stateOrder.collected}
           onChange={handleChange}
         >
-          <option value={true}>True</option>
-          <option value={false}>False</option>
+          <option value={true}>Yes</option>
+          <option value={false}>No</option>
         </select>
       </p>
       <p>
